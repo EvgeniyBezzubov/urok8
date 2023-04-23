@@ -1,16 +1,11 @@
 import glob
 import re
 import csv
-
-
 def parser(fread, poisk, list_add):  # фуункция ищет в тексте (fread) входжения (poisk), добавляет в цуказанный лист
     m = re.search(poisk, fread)  # извлечение "Изготовитель системы"
     m2 = re.search(r'\s{2}.*', m[0])
     name = re.search(r'\S.*', m2[0])
     list_add.append(name[0])
-    # print(list_add)
-
-
 def get_data():
     name = glob.glob(".\\\\*[0-9].txt")
     print(name)
